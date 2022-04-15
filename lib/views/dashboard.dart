@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:medusah/utils/utils.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:medusah/views/settings_view.dart';
 import 'package:medusah/widgets/app_column.dart';
 import 'package:medusah/widgets/big_text.dart';
@@ -15,11 +15,11 @@ class DashboardView extends StatelessWidget {
         actions: [
           Padding(
             padding: EdgeInsets.only(
-                right: Dimensions.width15, top: Dimensions.height10),
+                right:15.w, top: 10.h),
             child: GestureDetector(
               onTap: () {
                 Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (_) => SettingsView()));
+                    .push(MaterialPageRoute(builder: (_) => const SettingsView()));
               },
               child: const CircleAvatar(
                 backgroundImage: NetworkImage(
@@ -33,38 +33,38 @@ class DashboardView extends StatelessWidget {
           child: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.only(
-              top: Dimensions.height15,
-              right: Dimensions.width15,
-              left: Dimensions.width15,
-              bottom: Dimensions.width10),
+              top: 15.h,
+              right: 15.w,
+              left: 15.w,
+              bottom: 10.h),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               BigText(
                 text: 'Hello,',
                 color: Theme.of(context).textTheme.bodyText1!.color,
-                size: Dimensions.font26,
+                size: 26.sp,
               ),
               BigText(
                 text: 'Edusah 👋',
                 color: Theme.of(context).textTheme.bodyText1!.color,
-                size: Dimensions.font26,
+                size: 26.sp,
               ),
               SizedBox(
-                height: Dimensions.height15,
+                height: 30.h,
               ),
               Container(
                 padding: EdgeInsets.only(
-                    top: Dimensions.height10,
-                    left: Dimensions.width10,
-                    bottom: Dimensions.height10,
-                    right: Dimensions.width10),
+                    top: 10.h,
+                    left:10.w,
+                    bottom: 10.h,
+                    right: 10.w),
                 //  height: Dimensions.height30,
                 // width: Dimensions.width90,
                 decoration: BoxDecoration(
                   color: Colors.blue,
                   borderRadius:
-                      BorderRadius.all(Radius.circular(Dimensions.radius20)),
+                      BorderRadius.all(Radius.circular(20.r)),
                 ),
                 child: Center(
                     child: BigText(
@@ -73,7 +73,7 @@ class DashboardView extends StatelessWidget {
                 )),
               ),
               SizedBox(
-                height: Dimensions.height20,
+                height: 20.h,
               ),
               const AppColumn(
                   text: 'Total Product',
@@ -81,7 +81,7 @@ class DashboardView extends StatelessWidget {
                   image:
                       'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1283&q=80'),
               SizedBox(
-                height: Dimensions.height15,
+                height: 15.h,
               ),
               const AppColumn(
                   text: 'Total Sales',
@@ -89,9 +89,9 @@ class DashboardView extends StatelessWidget {
                   image:
                       'https://images.unsplash.com/photo-1580828343064-fde4fc206bc6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80'),
               SizedBox(
-                height: Dimensions.height15,
+                height: 15.h,
               ),
-              AppColumn(
+             const AppColumn(
                   text: 'Total Stock',
                   quatity: 300,
                   image:

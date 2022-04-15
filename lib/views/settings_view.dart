@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:medusah/utils/utils.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:medusah/widgets/app_icon.dart';
 import 'package:medusah/widgets/big_text.dart';
 
@@ -13,7 +13,7 @@ class SettingsView extends StatelessWidget {
           child: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(
-              horizontal: Dimensions.width15, vertical: Dimensions.height15),
+              horizontal:15.w, vertical:15.h),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -23,26 +23,26 @@ class SettingsView extends StatelessWidget {
                       onTap: () {
                         Navigator.of(context).pop();
                       },
-                      child: AppIcon(icon: Icons.close_sharp))),
-              CircleAvatar(
+                      child: const AppIcon(icon: Icons.close_sharp))),
+            const  CircleAvatar(
                 radius: 60,
-                backgroundImage: const NetworkImage(
+                backgroundImage:  NetworkImage(
                     'https://images.unsplash.com/photo-1624996379697-f01d168b1a52?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'),
               ),
               SizedBox(
-                height: Dimensions.height10,
+                height:10.h,
               ),
               BigText(
                 text: "Edusah Emmanuel",
                 color: Theme.of(context).textTheme.bodyText1!.color,
               ),
               SizedBox(
-                height: Dimensions.height10,
+                height:10.h,
               ),
               Container(
                 decoration: BoxDecoration(
                   borderRadius:
-                      BorderRadius.all(Radius.circular(Dimensions.radius20)),
+                      BorderRadius.all(Radius.circular(20.r)),
                   border: Border.all(
                     width: 1.5,
                     color: Colors.white.withOpacity(0.2),
@@ -50,11 +50,11 @@ class SettingsView extends StatelessWidget {
                 ),
                 child: TextButton(
                   onPressed: () {},
-                  child: Text('View Proile'),
+                  child: const Text('View Proile'),
                 ),
               ),
               SizedBox(
-                height: Dimensions.height30,
+                height: 30.h,
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -64,42 +64,42 @@ class SettingsView extends StatelessWidget {
                     color: Theme.of(context).textTheme.bodyText1!.color,
                   ),
                   SizedBox(
-                    height: Dimensions.height15,
+                    height: 14.h,
                   ),
                   Container(
                     padding: EdgeInsets.only(
-                        top: Dimensions.height10,
-                        right: Dimensions.width10,
-                        left: Dimensions.width10,
-                        bottom: Dimensions.height10),
+                        top: 10.h,
+                        right: 10.w,
+                        left:10.w,
+                        bottom: 10.h),
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(15)),
+                      borderRadius: BorderRadius.all(Radius.circular(15.r)),
                       color: Colors.grey[350],
                     ),
-                    child: ListTile(
+                    child:const ListTile(
                       leading: CircleAvatar(),
                       title: Text('Paints'),
                       subtitle: Text("Inventory"),
                     ),
                   ),
                   SizedBox(
-                    height: Dimensions.height15,
+                    height: 15.h,
                   ),
                   BigText(
                     text: 'Manage',
                     color: Theme.of(context).textTheme.bodyText1!.color,
                   ),
                   SizedBox(
-                    height: Dimensions.height15,
+                    height: 15.h,
                   ),
                   Container(
                     padding: EdgeInsets.only(
-                        top: Dimensions.height10,
-                        right: Dimensions.width10,
-                        left: Dimensions.width10,
-                        bottom: Dimensions.height10),
+                        top: 10.h,
+                        right: 10.w,
+                        left:10.w,
+                        bottom:10.h),
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(15)),
+                      borderRadius: BorderRadius.all(Radius.circular(15.r)),
                       color: Colors.grey[350],
                     ),
                     child: const ListTile(
@@ -109,11 +109,11 @@ class SettingsView extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: Dimensions.width15,
+                    height:10.w,
                   ),
                   SizedBox(
                     width: double.maxFinite,
-                    height: Dimensions.height45,
+                    height: 45.h,
                     child: TextButton(
                       onPressed: () {},
                       child: const Text(

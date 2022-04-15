@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:medusah/utils/utils.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 class AppIcon extends StatelessWidget {
   final IconData icon;
   final Color backgroundColor;
   final Color iconColor;
   final double size;
-  AppIcon(
+ const AppIcon(
       {Key? key,
       required this.icon,
       this.backgroundColor = const Color(0xFFfcf4e4),
@@ -25,7 +26,7 @@ class AppIcon extends StatelessWidget {
       child: Icon(
         icon,
         color: iconColor,
-        size: Dimensions.iconSize24,
+        size: 20.sp,
       ),
     );
   }
