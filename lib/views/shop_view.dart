@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:medusah/views/create_product.dart';
 import 'package:medusah/views/create_team.dart';
 import 'package:medusah/views/products_view_page.dart';
+import 'package:medusah/views/sales/sales_page.dart';
 import 'package:medusah/views/team_view.dart';
 import 'package:medusah/widgets/big_text.dart';
 import 'package:medusah/widgets/shop_column.dart';
@@ -34,6 +35,31 @@ class ShopView extends StatelessWidget {
                 SingleChildScrollView(
                   child: Column(
                     children: [
+                      // GestureDetector(
+                      //   onTap: () {
+                      //     Navigator.of(context).push(MaterialPageRoute(
+                      //         builder: (_) => const TeamView()));
+                      //   },
+                      //   child: const ShopColumn(
+                      //       icon: Icons.people_alt,
+                      //       number: '0',
+                      //       title: 'My Team',
+                      //       subtitle: 'workers'),
+                      // ),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (_) => const SalesPage()));
+                        },
+                        child: const ShopColumn(
+                            icon: Icons.people_alt,
+                            number: '',
+                            title: 'Sell',
+                            subtitle: ''),
+                      ),
+                      SizedBox(
+                        height: 20.h,
+                      ),
                       GestureDetector(
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(
@@ -51,22 +77,14 @@ class ShopView extends StatelessWidget {
                       GestureDetector(
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(
-                              builder: (_) => const TeamView()));
+                              builder: (_) => const SalesPage()));
                         },
                         child: const ShopColumn(
-                            icon: Icons.people_alt,
-                            number: '0',
-                            title: 'My Team',
-                            subtitle: 'workers'),
-                      ),
-                      SizedBox(
-                        height: 20.h,
-                      ),
-                      const ShopColumn(
-                          icon: Icons.receipt_long,
-                          number: '',
-                          title: 'Records',
-                          subtitle: '')
+                            icon: Icons.receipt_long,
+                            number: '',
+                            title: 'Records',
+                            subtitle: ''),
+                      )
                     ],
                   ),
                 )

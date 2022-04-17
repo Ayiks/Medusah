@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
                 labelColor: Colors.black,
                 labelStyle: TextStyle(fontSize: 20.sp),
               ),
-              scaffoldBackgroundColor: Colors.white,
+              scaffoldBackgroundColor: Color.fromARGB(255, 237, 249, 249),
               appBarTheme: AppBarTheme(
                 titleTextStyle: TextStyle(
                     color: Colors.black,

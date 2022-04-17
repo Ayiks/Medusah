@@ -10,8 +10,30 @@ class ProductPage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
           child: SingleChildScrollView(
-        child:
-            Column(crossAxisAlignment: CrossAxisAlignment.start, children: []),
+            //padding: EdgeInsets.only(left: ),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          ListTile(
+            title: Text(
+              'Some product',
+              style: TextStyle(fontSize: 25.sp, fontWeight: FontWeight.w600),
+            ),
+            subtitle: Row(
+              children: [
+                Text(
+                  '10',
+                  style: TextStyle(fontSize: 15.sp),
+                ),
+                SizedBox(
+                  width: 5.w,
+                ),
+                Text(
+                  'left',
+                  style: TextStyle(fontSize: 15.sp),
+                ),
+              ],
+            ),
+          )
+        ]),
       )),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
