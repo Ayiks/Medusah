@@ -1,36 +1,46 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:medusah/controllers/cart_controller.dart';
 import 'package:medusah/views/create_product.dart';
 import 'package:medusah/views/create_team.dart';
 import 'package:medusah/views/products_view_page.dart';
 import 'package:medusah/views/sales/sales_page.dart';
+import 'package:medusah/views/stocks/products_page.dart';
 import 'package:medusah/views/team_view.dart';
 import 'package:medusah/widgets/big_text.dart';
 import 'package:medusah/widgets/shop_column.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
+
+import '../controllers/product_controller.dart';
+import '../utils/utils.dart';
 
 class ShopView extends StatelessWidget {
   const ShopView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    Get.find<CartController>();
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.only(
-                top: 40.h, left: 15.w, right: 15.w, bottom: 15.h),
+                top: Dimensions.height30,
+                left: Dimensions.width15,
+                right: Dimensions.width15,
+                bottom: Dimensions.height15),
             child: Column(
               children: [
                 Center(
                   child: BigText(
                     text: 'Shop',
-                    size: 26.sp,
+                    size: Dimensions.font26,
                     color: Theme.of(context).textTheme.bodyText1!.color,
                   ),
                 ),
                 SizedBox(
-                  height: 45.h,
+                  height: Dimensions.height45,
                 ),
                 SingleChildScrollView(
                   child: Column(
@@ -46,24 +56,27 @@ class ShopView extends StatelessWidget {
                       //       title: 'My Team',
                       //       subtitle: 'workers'),
                       // ),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (_) => const SalesPage()));
-                        },
-                        child: const ShopColumn(
-                            icon: Icons.people_alt,
-                            number: '',
-                            title: 'Sell',
-                            subtitle: ''),
-                      ),
+                      GetBuilder<ProductController>(builder: (controller){
+
+                        return GestureDetector(
+                          onTap: () {
+                          // if(controller.totalItems >=1)
+                             Get.to(() => SalesPage());
+                          },
+                          child: const ShopColumn(
+                              icon: Icons.people_alt,
+                              number: '',
+                              title: 'Sell',
+                              subtitle: ''),
+                        );
+                      }),
                       SizedBox(
-                        height: 20.h,
+                        height: Dimensions.height20,
                       ),
                       GestureDetector(
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(
-                              builder: (_) => const ProductViewPage()));
+                              builder: (_) => const ProductPage()));
                         },
                         child: ShopColumn(
                             icon: Icons.stacked_bar_chart_outlined,
@@ -72,7 +85,7 @@ class ShopView extends StatelessWidget {
                             subtitle: 'Products'),
                       ),
                       SizedBox(
-                        height: 20.h,
+                        height: Dimensions.height20,
                       ),
                       GestureDetector(
                         onTap: () {
@@ -98,8 +111,8 @@ class ShopView extends StatelessWidget {
           showBarModalBottomSheet(
             context: context,
             builder: (context) => Container(
-              padding: EdgeInsets.only(top: 20.h, left: 30.w),
-              height: 150.h,
+              padding: EdgeInsets.only(top: Dimensions.height20, left: Dimensions.width30),
+              height: Dimensions.height10*15,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -111,7 +124,7 @@ class ShopView extends StatelessWidget {
                       },
                       child: Text(
                         'Create Product',
-                        style: TextStyle(fontSize: 15.sp),
+                        style: TextStyle(fontSize: Dimensions.font16),
                       )),
                   const Divider(),
                   TextButton(
@@ -122,7 +135,7 @@ class ShopView extends StatelessWidget {
                       },
                       child: Text(
                         'Create Team',
-                        style: TextStyle(fontSize: 15.sp),
+                        style: TextStyle(fontSize: Dimensions.font16),
                       )),
                 ],
               ),

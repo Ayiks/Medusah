@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:medusah/widgets/app_icon.dart';
 
+import '../utils/utils.dart';
+
 class CreateTeam extends StatefulWidget {
   const CreateTeam({Key? key}) : super(key: key);
 
@@ -36,67 +38,67 @@ class _CreateTeamState extends State<CreateTeam> {
       body: SafeArea(
         child: SingleChildScrollView(
             child: Padding(
-          padding: EdgeInsets.only(top: 20.h, left: 20.w, right: 20.w),
+          padding: EdgeInsets.only(top: Dimensions.height20, left: Dimensions.width20, right: Dimensions.width20),
           child: Column(
             children: [
               Form(
                   child: Column(
                 children: [
-                  SizedBox(height: 20.h),
+                  SizedBox(height: Dimensions.height20),
                   TextFormField(
                     keyboardType: TextInputType.text,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.all(
-                            Radius.circular(15.r),
+                            Radius.circular(Dimensions.radius15),
                           ),
                         ),
                         labelText: 'Name',
-                        labelStyle: TextStyle(fontSize: 20.sp)),
+                        labelStyle: TextStyle(fontSize: Dimensions.font20)),
                   ),
                   SizedBox(
-                    height: 15.h,
+                    height: Dimensions.height15,
                   ),
                   TextFormField(
                     keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.all(
-                            Radius.circular(15.r),
+                            Radius.circular(Dimensions.radius15),
                           ),
                         ),
                         labelText: 'Email',
-                        labelStyle: TextStyle(fontSize: 20.sp)),
+                        labelStyle: TextStyle(fontSize: Dimensions.font20)),
                   ),
                   SizedBox(
-                    height: 15.h,
+                    height: Dimensions.height15,
                   ),
                   TextFormField(
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.all(
-                            Radius.circular(15.r),
+                            Radius.circular(Dimensions.radius15),
                           ),
                         ),
                         labelText: 'Phone Number',
-                        labelStyle: TextStyle(fontSize: 20.sp)),
+                        labelStyle: TextStyle(fontSize: Dimensions.font20)),
                   ),
                   SizedBox(
-                    height: 15.h,
+                    height: Dimensions.height15,
                   ),
                   DropdownButtonFormField(
                     decoration: InputDecoration(
                         labelText: 'Role',
-                        labelStyle: TextStyle(fontSize: 20.sp),
+                        labelStyle: TextStyle(fontSize: Dimensions.font20),
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.all(
-                          Radius.circular(15.r),
+                          Radius.circular(Dimensions.radius15),
                         ))),
                     value: dropdownRole,
                     icon: const Icon(Icons.arrow_drop_down),
                     elevation: 16,
-                    style: TextStyle(color: Colors.black, fontSize: 12.sp),
+                    style: TextStyle(color: Colors.black, fontSize: Dimensions.font16 - 2),
                     onChanged: (String? newValue) {
                       setState(() {
                         dropdownRole = newValue!;
@@ -109,14 +111,14 @@ class _CreateTeamState extends State<CreateTeam> {
                     ].map<DropdownMenuItem<String>>((String value) {
                       return DropdownMenuItem<String>(
                         value: value,
-                        child: Text(value, style: TextStyle(fontSize: 12.sp)),
+                        child: Text(value, style: TextStyle(fontSize: Dimensions.font16 - 2)),
                       );
                     }).toList(),
                   ),
-                  SizedBox(height: 20.h),
+                  SizedBox(height: Dimensions.height20),
                   SizedBox(
                     width: double.maxFinite,
-                    height: 30.h,
+                    height: Dimensions.height30,
                     child: TextButton(
                       onPressed: () {},
                       child:const Text(

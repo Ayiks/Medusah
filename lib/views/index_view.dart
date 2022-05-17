@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:medusah/utils/utils.dart';
 import 'package:medusah/views/account.dart';
 import 'package:medusah/views/dashboard.dart';
 import 'package:medusah/views/shop_view.dart';
@@ -22,7 +22,7 @@ class _IndexViewState extends State<IndexView> {
         index: _currentIndex,
       ),
       bottomNavigationBar: BottomNavigationBar(
-          iconSize:24.sp,
+          iconSize:Dimensions.iconSize24,
           backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
           unselectedItemColor: Theme.of(context).iconTheme.color,
           //selectedItemColor: Theme.of(context).iconTheme.color,

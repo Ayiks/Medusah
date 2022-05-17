@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:medusah/views/profile_view.dart';
 import 'package:medusah/widgets/big_text.dart';
+
+import '../utils/utils.dart';
 
 class AccountView extends StatelessWidget {
   const AccountView({Key? key}) : super(key: key);
@@ -12,29 +13,29 @@ class AccountView extends StatelessWidget {
       body: SafeArea(
           child: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 15.h),
+          padding: EdgeInsets.symmetric(horizontal: Dimensions.width15, vertical: Dimensions.height15),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const CircleAvatar(
-                radius: 60,
+               CircleAvatar(
+                radius: Dimensions.radius30*2,
                 backgroundImage: NetworkImage(
                     'https://images.unsplash.com/photo-1624996379697-f01d168b1a52?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'),
               ),
               SizedBox(
-                height: 10.h,
+                height: Dimensions.height10,
               ),
               BigText(
                 text: "Edusah Emmanuel",
                 color: Theme.of(context).textTheme.bodyText1!.color,
               ),
               SizedBox(
-                height: 10.h,
+                height: Dimensions.height10,
               ),
               Container(
-                padding: EdgeInsets.only(left: 10.w, right: 10.w),
+                padding: EdgeInsets.only(left: Dimensions.width10, right: Dimensions.width10),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(20.r)),
+                  borderRadius: BorderRadius.all(Radius.circular(Dimensions.radius20)),
                   border: Border.all(
                     width: 1.5,
                     color: Colors.orange,
@@ -49,7 +50,7 @@ class AccountView extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 30.h,
+                height: Dimensions.height30,
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -59,13 +60,13 @@ class AccountView extends StatelessWidget {
                     color: Theme.of(context).textTheme.bodyText1!.color,
                   ),
                   SizedBox(
-                    height: 14.h,
+                    height: Dimensions.height15,
                   ),
                   Container(
                     padding: EdgeInsets.only(
-                        top: 10.h, right: 10.w, left: 10.w, bottom: 10.h),
+                        top: Dimensions.height10, right: Dimensions.width10, left: Dimensions.width10, bottom: Dimensions.height10),
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(15.r)),
+                      borderRadius: BorderRadius.all(Radius.circular(Dimensions.radius15)),
                       color: Colors.grey[350],
                     ),
                     child: const ListTile(
@@ -75,20 +76,20 @@ class AccountView extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: 15.h,
+                    height: Dimensions.height15,
                   ),
                   BigText(
                     text: 'Manage',
                     color: Theme.of(context).textTheme.bodyText1!.color,
                   ),
                   SizedBox(
-                    height: 15.h,
+                    height: Dimensions.height15,
                   ),
                   Container(
                     padding: EdgeInsets.only(
-                        top: 10.h, right: 10.w, left: 10.w, bottom: 10.h),
+                        top: Dimensions.height10, right: Dimensions.width10, left: Dimensions.width10, bottom: Dimensions.height10),
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(15.r)),
+                      borderRadius: BorderRadius.all(Radius.circular(Dimensions.radius15)),
                       color: Colors.grey[350],
                     ),
                     child: const ListTile(
@@ -98,11 +99,11 @@ class AccountView extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: 10.w,
+                    height: Dimensions.width10,
                   ),
                   SizedBox(
                     width: double.maxFinite,
-                    height: 45.h,
+                    height: Dimensions.height45,
                     child: TextButton(
                       onPressed: () {},
                       child: const Text(

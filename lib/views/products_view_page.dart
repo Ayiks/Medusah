@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:medusah/utils/utils.dart';
 import 'package:medusah/views/stocks/categories_page.dart';
 import 'package:medusah/views/stocks/products_page.dart';
 import 'package:medusah/views/stocks/restock_page.dart';
@@ -16,7 +17,7 @@ class ProductViewPage extends StatelessWidget {
       child: Scaffold(
           appBar: AppBar(
             leading: Padding(
-              padding: EdgeInsets.all(10.h),
+              padding: EdgeInsets.all(Dimensions.height10),
               child: GestureDetector(
                   onTap: () {
                     Navigator.of(context).pop();

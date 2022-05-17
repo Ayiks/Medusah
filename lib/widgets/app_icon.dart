@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:medusah/utils/utils.dart';
 
 
 class AppIcon extends StatelessWidget {
@@ -26,7 +26,7 @@ class AppIcon extends StatelessWidget {
       child: Icon(
         icon,
         color: iconColor,
-        size: 20.sp,
+        size: Dimensions.iconSize16,
       ),
     );
   }

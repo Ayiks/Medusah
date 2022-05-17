@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:medusah/widgets/big_text.dart';
+
+import '../utils/utils.dart';
 
 class ShopColumn extends StatelessWidget {
   final IconData icon;
@@ -13,10 +14,10 @@ class ShopColumn extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         padding:
-            EdgeInsets.only(top: 10.h, left: 10.w, bottom: 10.h, right: 10.w),
-        decoration: const BoxDecoration(
+            EdgeInsets.only(top: Dimensions.height10, left: Dimensions.width10, bottom: Dimensions.height10, right: Dimensions.width10),
+        decoration:  BoxDecoration(
             color: Color.fromARGB(255, 236, 234, 234),
-            borderRadius: BorderRadius.all(Radius.circular(8))),
+            borderRadius: BorderRadius.all(Radius.circular(Dimensions.radius15- 6))),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -26,19 +27,19 @@ class ShopColumn extends StatelessWidget {
               children: [
                 Container(
                   padding: EdgeInsets.only(
-                      top: 5.h, left: 5.w, bottom: 5.h, right: 5.w),
+                      top: Dimensions.height10 - 5, left: Dimensions.width10 - 5, bottom: Dimensions.height10-5, right: Dimensions.width10 - 5),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8.r),
+                    borderRadius: BorderRadius.circular(Dimensions.radius15 -6),
                     color: Colors.orange,
                   ),
                   child: Icon(
                    icon,
-                    size: 30.sp,
+                    size: Dimensions.iconSize24 +8,
                     color: Colors.white,
                   ),
                 ),
                 SizedBox(
-                  width: 30.w,
+                  width: Dimensions.width30,
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -47,11 +48,11 @@ class ShopColumn extends StatelessWidget {
                     Text(
                       title,
                       style: TextStyle(
-                          fontSize: 25.sp, fontWeight: FontWeight.w600),
+                          fontSize: Dimensions.font26, fontWeight: FontWeight.w600),
                     ),
                     Text(subtitle,
                         style: TextStyle(
-                          fontSize: 15.sp,
+                          fontSize: Dimensions.font16,
                         )
                         //fontWeight: FontWeight.w600),
                         )
@@ -65,11 +66,11 @@ class ShopColumn extends StatelessWidget {
               children: [
                 BigText(text: number),
                 SizedBox(
-                  width: 20.w,
+                  width: Dimensions.width20,
                 ),
                 Icon(
                   Icons.more_vert,
-                  size: 16.sp,
+                  size: Dimensions.iconSize16,
                 )
               ],
             )

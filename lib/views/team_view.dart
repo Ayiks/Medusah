@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:medusah/widgets/app_icon.dart';
 
+import '../utils/utils.dart';
+
 class TeamView extends StatelessWidget {
   const TeamView({Key? key}) : super(key: key);
 
@@ -10,7 +12,7 @@ class TeamView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: Padding(
-          padding: EdgeInsets.all(10.h),
+          padding: EdgeInsets.all(Dimensions.height10),
           child: GestureDetector(
               onTap: () {
                 Navigator.of(context).pop();
@@ -31,11 +33,11 @@ class TeamView extends StatelessWidget {
       ),
       body: SafeArea(
           child: SingleChildScrollView(
-        padding: EdgeInsets.only(top: 30.h, left: 20.w, right: 20.w),
+        padding: EdgeInsets.only(top: Dimensions.height30, left: Dimensions.width20, right: Dimensions.width20),
         child: Container(
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(8.r)),
-              border: Border.all(width: 1.5.w, color: Colors.orange)),
+              borderRadius: BorderRadius.all(Radius.circular(Dimensions.radius15-6)),
+              border: Border.all(width: 1.5, color: Colors.orange)),
           child: const ListTile(
             leading: CircleAvatar(
                 backgroundImage: NetworkImage(

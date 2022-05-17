@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:medusah/utils/utils.dart';
 
 
 // ignore: must_be_immutable
@@ -26,7 +27,7 @@ class BigText extends StatelessWidget {
           color: color,
           fontFamily: 'Roboto',
           fontWeight: FontWeight.w400,
-          fontSize: size == 0 ? 20.sp : size),
+          fontSize: size == 0 ? Dimensions.iconSize24 : size),
     );
   }
 }
