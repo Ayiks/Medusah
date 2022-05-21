@@ -89,7 +89,7 @@ class _SalesPageState extends State<SalesPage> {
                                         BigText(
                                           text: 'GHC' +
                                               cartController
-                                                  .getItems[index].price!
+                                                  .getItems[index].sellingPrice!
                                                   .toString(),
                                           color: Colors.redAccent,
                                         ),
@@ -200,7 +200,7 @@ class _SalesPageState extends State<SalesPage> {
                       color: Colors.orange,
                     ),
                     child: BigText(
-                      text: 'Sold',
+                      text: 'Pay',
                       color: Colors.white,
                     ),
                   ),

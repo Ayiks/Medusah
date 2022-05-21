@@ -9,4 +9,8 @@ class ProductRepo extends GetxService {
   Future<Response> getProductList() async {
     return await apiClient.getData(AppConstants.PRODUCT_URI);
   }
+
+  Future<Response> postProduct(Map<String, dynamic> data) async {
+    return await apiClient.postData(AppConstants.PRODUCT_URI, data);
+  }
 }

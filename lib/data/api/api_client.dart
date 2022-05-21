@@ -27,4 +27,14 @@ Future<Response> getData(String uri) async{
       return Response(statusCode: 1, statusText: e.toString());
     }
 }
+
+//POST REQUEST
+  Future<Response> postData(String uri, Map<dynamic, dynamic> data) async {
+    try {
+      Response response = await post(uri, data);
+      return response;
+    } catch (e) {
+      return Response(statusCode: 1, statusText: e.toString());
+    }
+  }
 }

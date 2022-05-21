@@ -23,7 +23,7 @@ class CartController extends GetxController {
             pId: value.pId,
             id: value.id,
             name: value.name,
-            price: value.price,
+            sellingPrice: value.sellingPrice,
             quantity: value.quantity! + quantity,
             isExit: true,
             time: DateTime.now().toString(),
@@ -42,7 +42,7 @@ class CartController extends GetxController {
               pId: product.pId,
               id: product.id,
               name: product.name,
-              price: product.price,
+              sellingPrice: product.sellingPrice,
               quantity: quantity,
               isExit: true,
               time: DateTime.now().toString(),
@@ -93,7 +93,7 @@ class CartController extends GetxController {
     var total = 0.0;
 
     _items.forEach((key, value) {
-      total += value.quantity! * value.price!;
+      total += value.quantity! * value.sellingPrice!;
     });
     return total;
   }

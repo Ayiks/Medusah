@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:medusah/controllers/product_controller.dart';
+import 'package:medusah/routes/route_helper.dart';
 import 'package:medusah/utils/utils.dart';
 import 'package:medusah/views/index_view.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
@@ -78,6 +79,7 @@ class MyApp extends StatelessWidget {
       title: 'Medusah',
       debugShowCheckedModeBanner: false,
       home: IndexView(),
+      getPages: RouteHelper.routes,
       theme: ThemeData(
               primarySwatch: Colors.orange,
               tabBarTheme: TabBarTheme(

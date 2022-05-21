@@ -31,7 +31,8 @@ class ProductModel {
   String? id;
   String? name;
   String? category;
-  double? price;
+  double? costPrice;
+  double? sellingPrice;
   int? quantity;
   int? iV;
   String? createdAt;
@@ -42,7 +43,8 @@ class ProductModel {
       {this.id,
         this.name,
         this.category,
-        this.price,
+        this.costPrice,
+        this.sellingPrice,
         this.quantity,
         this.iV,
         this.createdAt,
@@ -53,7 +55,8 @@ class ProductModel {
     id = json['_id'];
     name = json['name'];
     category = json['category'];
-    price = json['price'];
+    costPrice = double.parse("${json['costPrice']}");
+    sellingPrice = double.parse("${json['sellingPrice']}");
     quantity = json['quantity'];
     iV = json['__v'];
     createdAt = json['created_at'];
