@@ -64,4 +64,17 @@ class ProductModel {
     pId = json['productId'];
   }
 
+  Map<String, dynamic> toJson(){
+    return {
+      "id": this.id,
+      "name":this.name,
+      "category": this.category,
+      "sellingPrice": this.sellingPrice,
+      "costPrice": this.costPrice,
+      "quantity": this.quantity,
+      "createdAt": this.createdAt,
+      "updatedAt": this.updatedAt,
+      "productId":this.pId
+    };
+  }
 }

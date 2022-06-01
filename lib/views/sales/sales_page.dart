@@ -188,6 +188,7 @@ class _SalesPageState extends State<SalesPage> {
                 GestureDetector(
                   onTap: () {
                     // popularProduct.addItem(product);
+                    cartController.addToHistory();
                   },
                   child: Container(
                     padding: EdgeInsets.only(

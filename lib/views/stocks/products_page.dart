@@ -34,6 +34,7 @@ class _ProductPageState extends State<ProductPage> {
                 iconColor: Colors.white,
               )),
         ),
+        title: BigText(text: 'Product List',),
       ),
       body: SafeArea(
           child: SingleChildScrollView(
@@ -85,12 +86,24 @@ class _ProductPageState extends State<ProductPage> {
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                 children: [
-                                  SmallText(text: "CP: " 'GHC'+product.productList[index].costPrice!.toString() ),
-                                  SmallText(text: "SP: " 'GHC'+product.productList[index].sellingPrice!.toString() ),
-                                  IconAndTextWidget(
-                                      icon: Icons.production_quantity_limits,
-                                      text: product.productList[index].quantity!.toString(),
-                                      iconColor: Colors.green)
+                                  Row(
+                                    children: [
+                                      SmallText(text: "CP: " , color: Colors.orange,),
+                                      SmallText(text:'GHC'+product.productList[index].costPrice!.toString(), color: Colors.black, ),
+
+                                    ],
+                                  ),
+                                  Row(
+                                    children: [
+                                      SmallText(text: "SP: " ,color: Colors.orange, ),
+                                      SmallText(text: 'GHC'+product.productList[index].sellingPrice!.toString(), color: Colors.black, ),
+
+                                    ],
+                                  )
+                                  // IconAndTextWidget(
+                                  //     icon: Icons.production_quantity_limits,
+                                  //     text: product.productList[index].quantity!.toString(),
+                                  //     iconColor: Colors.green)
                                 ],
                               )
                             ],

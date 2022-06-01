@@ -29,7 +29,7 @@ Future<Response> getData(String uri) async{
 }
 
 //POST REQUEST
-  Future<Response> postData(String uri, Map<dynamic, dynamic> data) async {
+  Future<Response> postData(String uri, Map<String, dynamic> data) async {
     try {
       Response response = await post(uri, data);
       return response;
@@ -37,4 +37,14 @@ Future<Response> getData(String uri) async{
       return Response(statusCode: 1, statusText: e.toString());
     }
   }
+
+  //UPDATE REQUEST
+Future<Response> updateData(String uri, Map<String, dynamic> data) async{
+    try{
+      Response response = await patch(uri, data);
+      return response;
+    } catch (e) {
+      return Response(statusCode: 1, statusText: e.toString());
+    }
+}
 }

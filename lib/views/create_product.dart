@@ -168,7 +168,8 @@ class _CreateProductState extends State<CreateProduct> {
                                   category: dropdownType,
                                   sellingPrice: double.parse(_sellingPriceController.text),
                                   costPrice: double.parse(_costPriceController.text),
-                                  quantity: int.parse(_quantityController.text));
+                                  // quantity: int.parse(_quantityController.text)
+                              );
 
                             },
                             child:const Text(

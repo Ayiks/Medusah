@@ -5,9 +5,9 @@ import 'big_text.dart';
 
 class AppColumn extends StatelessWidget {
   final String text;
-  final int quatity;
+  final int? quatity;
   final String? image;
-  const AppColumn({Key? key, required this.text, required this.quatity,  this.image})
+  const AppColumn({Key? key, required this.text,  this.quatity,  this.image})
       : super(key: key);
 
   @override

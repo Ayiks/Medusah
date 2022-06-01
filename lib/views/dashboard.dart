@@ -6,8 +6,11 @@ import 'package:medusah/utils/utils.dart';
 import 'package:medusah/views/settings_view.dart';
 import 'package:medusah/views/shop_view.dart';
 import 'package:medusah/views/stocks/products_page.dart';
+import 'package:medusah/views/stocks/restock_page.dart';
 import 'package:medusah/widgets/app_column.dart';
 import 'package:medusah/widgets/big_text.dart';
+
+import '../controllers/cart_controller.dart';
 
 class DashboardView extends StatefulWidget {
   const DashboardView({Key? key}) : super(key: key);
@@ -19,6 +22,7 @@ class DashboardView extends StatefulWidget {
 class _DashboardViewState extends State<DashboardView> {
   @override
   Widget build(BuildContext context) {
+    Get.find<CartController>();
     return Scaffold(
       appBar: AppBar(
         title: const Text('Dashboard'),
@@ -100,7 +104,7 @@ class _DashboardViewState extends State<DashboardView> {
                     : Container();
               }),
               SizedBox(
-                height: Dimensions.height15,
+                height: Dimensions.height15
               ),
               GestureDetector(
                 onTap: (){
@@ -115,11 +119,18 @@ class _DashboardViewState extends State<DashboardView> {
               SizedBox(
                 height: Dimensions.height15,
               ),
-             const AppColumn(
-                  text: 'Total Stock',
-                  quatity: 300,
-                  image:
-                      'https://images.unsplash.com/photo-1624996379697-f01d168b1a52?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80')
+             GestureDetector(
+               onTap: (){
+                 Get.to(()=> RestockPage());
+               },
+               child:  GetBuilder<ProductController>(builder: (products){
+                 return AppColumn(
+                   text: 'Total Stock',
+                   image:
+                   'https://images.unsplash.com/photo-1624996379697-f01d168b1a52?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+                   quatity: products.productList.length,);
+               },)
+             )
             ],
           ),
         ),

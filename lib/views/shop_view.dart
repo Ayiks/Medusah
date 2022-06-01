@@ -5,6 +5,7 @@ import 'package:medusah/controllers/cart_controller.dart';
 import 'package:medusah/views/create_product.dart';
 import 'package:medusah/views/create_team.dart';
 import 'package:medusah/views/products_view_page.dart';
+import 'package:medusah/views/sales/sales_history.dart';
 import 'package:medusah/views/sales/sales_page.dart';
 import 'package:medusah/views/stocks/products_page.dart';
 import 'package:medusah/views/team_view.dart';
@@ -14,6 +15,7 @@ import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 import '../controllers/product_controller.dart';
 import '../utils/utils.dart';
+import '../widgets/app_icon.dart';
 
 class ShopView extends StatelessWidget {
   const ShopView({Key? key}) : super(key: key);
@@ -22,6 +24,22 @@ class ShopView extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.find<CartController>();
     return Scaffold(
+      appBar: AppBar(
+        leading: Padding(
+          padding: EdgeInsets.all(Dimensions.height10),
+          child: GestureDetector(
+              onTap: () {
+                Navigator.of(context).pop();
+              },
+              child: const AppIcon(
+                icon: Icons.arrow_back_ios_outlined,
+                backgroundColor: Colors.orange,
+                iconColor: Colors.white,
+              )),
+        ),
+        title: Text('Shop'),
+        centerTitle: false,
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -32,16 +50,7 @@ class ShopView extends StatelessWidget {
                 bottom: Dimensions.height15),
             child: Column(
               children: [
-                Center(
-                  child: BigText(
-                    text: 'Shop',
-                    size: Dimensions.font26,
-                    color: Theme.of(context).textTheme.bodyText1!.color,
-                  ),
-                ),
-                SizedBox(
-                  height: Dimensions.height45,
-                ),
+
                 SingleChildScrollView(
                   child: Column(
                     children: [
@@ -89,8 +98,7 @@ class ShopView extends StatelessWidget {
                       ),
                       GestureDetector(
                         onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (_) => const SalesPage()));
+                         Get.to(()=>SalesHistory());
                         },
                         child: const ShopColumn(
                             icon: Icons.receipt_long,

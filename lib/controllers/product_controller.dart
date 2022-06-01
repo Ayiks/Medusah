@@ -1,3 +1,4 @@
+import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -11,6 +12,11 @@ class ProductController extends GetxController {
   final ProductRepo productRepo;
   ProductController({required this.productRepo});
 
+  Rx<List<ProductModel>> productLists = Rx<List<ProductModel>>([]);
+  List<ProductModel> get product => productLists.value;
+
+
+
   List<dynamic> _productList = [];
   List<dynamic> get productList => _productList;
   late CartController _cart;
@@ -22,7 +28,6 @@ class ProductController extends GetxController {
   int get quantity => _quantity;
   int _inCartItem = 0;
   int get inCartItem => _inCartItem + _quantity;
-  //Map<dynamic, ProductModel> item ={};
 
 
   Future<void> getProductList() async {
@@ -32,10 +37,14 @@ class ProductController extends GetxController {
       _productList = [];
       _productList.addAll(Product.fromJson(response.body).products);
       _isLoaded = true;
+
+      // List<Product> productList =[];
+      // _productList.forEach((element) =>productList.add(Product.fromJson(element)));
       update();
     } else {
       print('Failed to get products');
     }
+    update();
   }
 
   Future<void> postProduct({
@@ -43,25 +52,69 @@ class ProductController extends GetxController {
     required String category,
     required double sellingPrice,
     required double costPrice,
-    required int quantity
+    //required int quantity
   }) async {
     Response response = await productRepo.postProduct({
-    "name":productName,
-    "category":category,
-    "costPrice":costPrice,
-    "sellingPrice":sellingPrice,
-    "quantity":quantity
+      "name": productName,
+      "category": category,
+      "costPrice": costPrice,
+      "sellingPrice": sellingPrice,
+      "quantity": 0
     });
-    if(response.statusCode == 200){
+    if (response.statusCode == 200) {
       print('Product created');
       Get.snackbar('Success', 'Product Created successfully!',
           backgroundColor: Colors.orange, colorText: Colors.white);
       update();
-    }else {
+    } else {
       print('Product not created');
       Get.snackbar('Error', 'Product Created successfully!',
           backgroundColor: Colors.red, colorText: Colors.white);
     }
+  }
+
+  Future<void> updatePrice({
+    required String id,
+    required double sellingPrice,
+    required double costPrice,
+  }) async {
+    Response response = await productRepo
+        .updatePrice(id: id, data: {"costPrice":costPrice, "sellingPrice":sellingPrice});
+    try{
+      if (response.statusCode == 201) {
+        print('Price updated');
+        Get.snackbar('Success', 'Price updated successfully!',
+            backgroundColor: Colors.orange, colorText: Colors.white);
+        update();
+      } else {
+        print('Price update failed');
+        Get.snackbar('Error', 'Price update failed!',
+            backgroundColor: Colors.red, colorText: Colors.white);
+      }
+    } catch (e) {
+      print('the error '+e.toString());
+    }
+    //update();
+  }
+
+  Future<void> updateQuantity({
+    required String id,
+    required int quantity,
+  }) async {
+    Response response = await productRepo
+        .updateQuantity(id: id, data: {"quantity":quantity});
+    if (response.statusCode == 201) {
+      print('Price updated');
+      Get.snackbar('Success', 'Price updated successfully!',
+          backgroundColor: Colors.orange, colorText: Colors.white);
+
+      update();
+    } else {
+      print('Price update failed');
+      Get.snackbar('Error', 'Price update failed!',
+          backgroundColor: Colors.red, colorText: Colors.white);
+    }
+    update();
   }
 
   void setQuantity(bool isIncrement) {

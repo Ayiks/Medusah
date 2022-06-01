@@ -10,7 +10,10 @@ import '../../widgets/big_text.dart';
 class ProductDetail extends StatelessWidget {
   final int pageId;
   final String page;
-  const ProductDetail({Key? key, required this.pageId, required this.page}) : super(key: key);
+   ProductDetail({Key? key, required this.pageId, required this.page}) : super(key: key);
+
+  final TextEditingController _sellingPrice = TextEditingController();
+  final TextEditingController _costPrice = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +44,8 @@ class ProductDetail extends StatelessWidget {
                 children: [
                   Form(
                       child: GetBuilder<ProductController>(builder: (controller){
+                        _costPrice.text = product.costPrice!.toString();
+                        _sellingPrice.text =product.sellingPrice!.toString();
                         return Column(
                           children: [
                             // SizedBox(height: Dimensions.height20),
@@ -59,28 +64,28 @@ class ProductDetail extends StatelessWidget {
                             SizedBox(
                               height: Dimensions.height15,
                             ),
-                            TextFormField(
-                              initialValue: product.quantity!.toString(),
-                              keyboardType: TextInputType.number,
-                              decoration: InputDecoration(
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(Dimensions.radius15),
-                                    ),
-                                  ),
-                                  labelText: 'Quantity',
-                                  labelStyle: TextStyle(fontSize: Dimensions.font20)),
-                            ),
-                            SizedBox(
-                              height: Dimensions.height15,
-                            ),
+                            // TextFormField(
+                            //   initialValue: product.quantity!.toString(),
+                            //   keyboardType: TextInputType.number,
+                            //   decoration: InputDecoration(
+                            //       border: OutlineInputBorder(
+                            //         borderRadius: BorderRadius.all(
+                            //           Radius.circular(Dimensions.radius15),
+                            //         ),
+                            //       ),
+                            //       labelText: 'Quantity',
+                            //       labelStyle: TextStyle(fontSize: Dimensions.font20)),
+                            // ),
+                            // SizedBox(
+                            //   height: Dimensions.height15,
+                            // ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               mainAxisSize: MainAxisSize.min,
                               children: [
                                 Expanded(
                                   child: TextFormField(
-                                    initialValue: product.costPrice!.toString(),
+                                    controller: _costPrice,
                                     decoration: InputDecoration(
                                         border: OutlineInputBorder(
                                           borderRadius: BorderRadius.all(
@@ -95,7 +100,7 @@ class ProductDetail extends StatelessWidget {
                                 SizedBox(width: Dimensions.width20),
                                 Expanded(
                                   child: TextFormField(
-                                    initialValue: product.sellingPrice!.toString(),
+                                    controller: _sellingPrice,
                                     decoration: InputDecoration(
                                         border: OutlineInputBorder(
                                           borderRadius: BorderRadius.all(
@@ -115,7 +120,10 @@ class ProductDetail extends StatelessWidget {
                               width: double.maxFinite,
                               height: Dimensions.height15*3,
                               child: TextButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  print('tapped');
+                                  controller.updatePrice(id: product.id!, sellingPrice: double.parse(_sellingPrice.text), costPrice: double.parse(_costPrice.text));
+                                },
                                 child:const Text(
                                   'Update Product',
                                   style: TextStyle(color: Colors.white),
